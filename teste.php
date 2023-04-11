@@ -1,18 +1,16 @@
 <?php
 
-use Adopet\User;
+
+use Alura\Pdo\Domain\Model\User;
 
 require_once 'vendor/autoload.php';
-require_once 'User.php';
 
-$yago = new User('Yago',
+$yago = new User(
+    1,
+    'Yago',
     'yago@gmail.com',
           '1234',
                 '',
             'teste'
 );
-
-$sql = "INSERT INTO USER
-                    VALUES (
-                            
-                    )";
+echo "Ok";

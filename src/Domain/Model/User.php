@@ -1,20 +1,23 @@
 <?php
 
-namespace Adopet;
+namespace Alura\Pdo\Domain\Model;
 
 class User
 {
+    private ?int $id;
     private $name;
     private $email;
     private $password;
     private $about;
     private $profilePicture;
 
-    public function __construct(string $name,
-                                string $email,
-                                string $password,
-                                string $about,
-                                string $profilePicture)
+    public function __construct(
+        ?int $id,
+        string $name,
+        string $email,
+        string $password,
+        string $about,
+        string $profilePicture)
     {
         $this->name = $name;
         $this->email = $email;
@@ -51,5 +54,30 @@ class User
     {
         $this->name = $name;
         return $this;
+    }
+
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    public function getEmail(): string
+    {
+        return $this->email;
+    }
+
+    public function getPassword(): string
+    {
+        return $this->password;
+    }
+
+    public function getAbout(): string
+    {
+        return $this->about;
+    }
+
+    public function getProfilePicture(): string
+    {
+        return $this->profilePicture;
     }
 }

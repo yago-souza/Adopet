@@ -1,0 +1,145 @@
+Index: teste.php
+===================================================================
+diff --git a/teste.php b/inserir-usuario.php
+rename from teste.php
+rename to inserir-usuario.php
+--- a/teste.php	
++++ b/inserir-usuario.php	
+@@ -14,5 +14,5 @@
+ 
+ $sql = "INSERT INTO USER
+                     VALUES (
+-                            
+-                    )";
+\ No newline at end of file
++                            '{$yago->}',
++                    );";
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"a0c05e66-1ae7-489a-b886-47c7c2ace80b\" name=\"Changes\" comment=\"\" />\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"ComposerSettings\" synchronizationState=\"SYNCHRONIZE\">\n    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>\n    <execution />\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"MarkdownSettingsMigration\">\n    <option name=\"stateVersion\" value=\"1\" />\n  </component>\n  <component name=\"PhpWorkspaceProjectConfiguration\">\n    <include_path>\n      <path value=\"$PROJECT_DIR$/vendor/composer\" />\n    </include_path>\n  </component>\n  <component name=\"ProjectId\" id=\"2O418JuyHF3rAjya6qkjtoPWUQ8\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\"><![CDATA[{\n  \"keyToString\": {\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\n    \"WebServerToolWindowFactoryState\": \"false\",\n    \"last_opened_file_path\": \"D:/Yago/Estudos/Alura/Challenge Back End 6\",\n    \"node.js.detected.package.eslint\": \"true\",\n    \"node.js.detected.package.tslint\": \"true\",\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\n    \"vue.rearranger.settings.migration\": \"true\"\n  }\n}]]></component>\n  <component name=\"RunManager\">\n    <configuration name=\"conexao.php\" type=\"PhpLocalRunConfigurationType\" factoryName=\"PHP Console\" temporary=\"true\" path=\"$PROJECT_DIR$/conexao.php\">\n      <CommandLine>\n        <PhpTestInterpreterSettings>\n          <option name=\"interpreterName\" value=\"PHP 8.1\" />\n        </PhpTestInterpreterSettings>\n      </CommandLine>\n      <method v=\"2\" />\n    </configuration>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"PHP Script.conexao.php\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"a0c05e66-1ae7-489a-b886-47c7c2ace80b\" name=\"Changes\" comment=\"\" />\n      <created>1680804888680</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1680804888680</updated>\n      <workItem from=\"1680804892208\" duration=\"627000\" />\n    </task>\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -4,7 +4,12 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="a0c05e66-1ae7-489a-b886-47c7c2ace80b" name="Changes" comment="" />
++    <list default="true" id="a0c05e66-1ae7-489a-b886-47c7c2ace80b" name="Changes" comment="">
++      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/User.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/teste.php" beforeDir="false" afterPath="$PROJECT_DIR$/inserir-usuario.php" afterDir="false" />
++    </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -20,7 +25,7 @@
+   <component name="MarkdownSettingsMigration">
+     <option name="stateVersion" value="1" />
+   </component>
+-  <component name="PhpWorkspaceProjectConfiguration">
++  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 8.1">
+     <include_path>
+       <path value="$PROJECT_DIR$/vendor/composer" />
+     </include_path>
+@@ -31,19 +36,19 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "RunOnceActivity.OpenProjectViewOnStart": "true",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "WebServerToolWindowFactoryState": "false",
+-    "last_opened_file_path": "D:/Yago/Estudos/Alura/Challenge Back End 6",
+-    "node.js.detected.package.eslint": "true",
+-    "node.js.detected.package.tslint": "true",
+-    "node.js.selected.package.eslint": "(autodetect)",
+-    "node.js.selected.package.tslint": "(autodetect)",
+-    "vue.rearranger.settings.migration": "true"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
++    &quot;last_opened_file_path&quot;: &quot;/home/yago/Documentos/alura/adopet&quot;,
++    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
++    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
++    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
++    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
++    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="RunManager">
+     <configuration name="conexao.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/conexao.php">
+       <CommandLine>
+@@ -68,6 +73,8 @@
+       <option name="presentableId" value="Default" />
+       <updated>1680804888680</updated>
+       <workItem from="1680804892208" duration="627000" />
++      <workItem from="1680826609486" duration="640000" />
++      <workItem from="1680907243872" duration="1503000" />
+     </task>
+     <servers />
+   </component>
+Index: .idea/php.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"PhpIncludePathManager\">\n    <include_path>\n      <path value=\"$PROJECT_DIR$/vendor/composer\" />\n    </include_path>\n  </component>\n  <component name=\"PhpProjectSharedConfiguration\" php_language_level=\"7.0\">\n    <option name=\"suggestChangeDefaultLanguageLevel\" value=\"false\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/php.xml b/.idea/php.xml
+--- a/.idea/php.xml	
++++ b/.idea/php.xml	
+@@ -1,5 +1,15 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
++  <component name="MessDetectorOptionsConfiguration">
++    <option name="transferred" value="true" />
++  </component>
++  <component name="PHPCSFixerOptionsConfiguration">
++    <option name="transferred" value="true" />
++  </component>
++  <component name="PHPCodeSnifferOptionsConfiguration">
++    <option name="highlightLevel" value="WARNING" />
++    <option name="transferred" value="true" />
++  </component>
+   <component name="PhpIncludePathManager">
+     <include_path>
+       <path value="$PROJECT_DIR$/vendor/composer" />
+@@ -8,4 +18,10 @@
+   <component name="PhpProjectSharedConfiguration" php_language_level="7.0">
+     <option name="suggestChangeDefaultLanguageLevel" value="false" />
+   </component>
++  <component name="PhpStanOptionsConfiguration">
++    <option name="transferred" value="true" />
++  </component>
++  <component name="PsalmOptionsConfiguration">
++    <option name="transferred" value="true" />
++  </component>
+ </project>
+\ No newline at end of file
+Index: User.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\n\nnamespace Adopet;\n\nclass User\n{\n    private $name;\n    private $email;\n    private $password;\n    private $about;\n    private $profilePicture;\n\n    public function __construct(string $name,\n                                string $email,\n                                string $password,\n                                string $about,\n                                string $profilePicture)\n    {\n        $this->name = $name;\n        $this->email = $email;\n        $this->password = $password;\n        $this->about = $about;\n        $this->profilePicture = $profilePicture;\n    }\n\n    public function setProfilePicture($profilePicture)\n    {\n        $this->profilePicture = $profilePicture;\n        return $this;\n    }\n\n    public function setAbout($about)\n    {\n        $this->about = $about;\n        return $this;\n    }\n\n    public function setPassword($password)\n    {\n        $this->password = $password;\n        return $this;\n    }\n\n    public function setEmail($email)\n    {\n        $this->email = $email;\n        return $this;\n    }\n\n    public function setName($name)\n    {\n        $this->name = $name;\n        return $this;\n    }\n}
+===================================================================
+diff --git a/User.php b/User.php
+--- a/User.php	
++++ b/User.php	
+@@ -15,6 +15,7 @@
+                                 string $password,
+                                 string $about,
+                                 string $profilePicture)
++
+     {
+         $this->name = $name;
+         $this->email = $email;

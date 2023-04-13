@@ -1,7 +1,7 @@
 <?php
 
 
-use Alura\Pdo\Domain\Model\User;
+use Alura\Pdo\Domain\User\Model\User;
 
 require_once 'vendor/autoload.php';
 

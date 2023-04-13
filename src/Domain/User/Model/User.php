@@ -1,6 +1,6 @@
 <?php
 
-namespace Alura\Pdo\Domain\Model;
+namespace Alura\Pdo\Domain\User\Model;
 
 class User
 {

@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a0c05e66-1ae7-489a-b886-47c7c2ace80b" name="Changes" comment="att" />
+    <list default="true" id="a0c05e66-1ae7-489a-b886-47c7c2ace80b" name="Changes" comment="lista usuarios, insere usuarios">
+      <change afterPath="$PROJECT_DIR$/src/Domain/Repository/UserRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Infraestructure/Repository/PdoUserRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/290b04d1-cd2c-436e-ba4c-c172e2250758.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_04_2023_20_24__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_04_2023_20_24__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/User/Model/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/User/Model/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/teste.php" beforeDir="false" afterPath="$PROJECT_DIR$/teste.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -55,6 +64,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;php.override.implement.member.chooser.php.doc&quot;: &quot;NONE&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;web-ide.project.structure&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -65,7 +75,7 @@
       <recent name="D:\Yago\Estudos\Alura\Challenge Back End 6\src" />
     </key>
   </component>
-  <component name="RunManager" selected="PHP Script.lista-usuario.php">
+  <component name="RunManager" selected="PHP Script.teste.php">
     <configuration name="conexao.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/conexao.php">
       <CommandLine>
         <PhpTestInterpreterSettings>
@@ -100,10 +110,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHP Script.teste.php" />
         <item itemvalue="PHP Script.lista-usuario.php" />
         <item itemvalue="PHP Script.conexao.php" />
         <item itemvalue="PHP Script.insere-usuario.php" />
-        <item itemvalue="PHP Script.teste.php" />
       </list>
     </recent_temporary>
   </component>
@@ -120,6 +130,8 @@
       <workItem from="1681214523839" duration="3094000" />
       <workItem from="1681218323407" duration="12388000" />
       <workItem from="1681422646440" duration="945000" />
+      <workItem from="1681481748780" duration="5310000" />
+      <workItem from="1681497964258" duration="917000" />
     </task>
     <task id="LOCAL-00001" summary="teste">
       <created>1680809888471</created>
@@ -156,6 +168,15 @@
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="RECENT_FILTERS">
       <map>
         <entry key="Branch">
@@ -172,15 +193,6 @@
                 </option>
               </RecentGroup>
             </list>
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
           </value>
         </entry>
       </map>

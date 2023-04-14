@@ -1,16 +1,11 @@
 <?php
 
-
+require_once 'vendor/autoload.php';
+use Alura\Pdo\Infraestructure\Persistence\ConnectionCreator;
+use Alura\Pdo\Infraestructure\Repository\PdoUserRepository;
 use Alura\Pdo\Domain\User\Model\User;
 
-require_once 'vendor/autoload.php';
+$connection = ConnectionCreator::createConnection();
+$teste = new PdoUserRepository($connection);
 
-$yago = new User(
-    1,
-    'Yago',
-    'yago@gmail.com',
-          '1234',
-                '',
-            'teste'
-);
-echo "Ok";
+var_dump($teste->allUsers());

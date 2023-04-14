@@ -80,4 +80,17 @@ class User
     {
         return $this->profilePicture;
     }
+
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    public function defineId(int $id): void
+    {
+        if (!is_null($this->id)) {
+            throw new \DomainException('Você só pode definir o ID uma vez');
+        }
+        $this->id = $id;
+    }
 }

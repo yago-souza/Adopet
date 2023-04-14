@@ -10,11 +10,11 @@ $pdo = ConnectionCreator::createConnection();
 
 $user = new User(
     null,
-    'Maria',
-    'maria-alice@email.com',
+    'teste',
+    'teste@email.com',
 '9876',
-'Mae da aurora',
-'teste3.jpg');
+' ',
+' ');
 
 $sqlInsert = "INSERT INTO TBL_USER (NAME,
                                 EMAIL,

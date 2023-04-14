@@ -2,7 +2,6 @@
 
 namespace Alura\Pdo\Infraestructure\Repository;
 
-use Alura\Pdo\Domain\Model\Student;
 use Alura\Pdo\Domain\Repository\UserRepository;
 use Alura\Pdo\Domain\User\Model\User;
 use \PDO;
@@ -19,6 +18,14 @@ class PdoUserRepository implements UserRepository
     public function allUsers(): array
     {
         $sqlQuery = 'SELECT * FROM TBL_USER;';
+        $statement = $this->connection->query($sqlQuery);
+
+        return $this->hydrateUserList($statement);
+    }
+
+    public function userForId(int $id):array
+    {
+        $sqlQuery = "SELECT * FROM TBL_USER WHERE ID = $id;";
         $statement = $this->connection->query($sqlQuery);
 
         return $this->hydrateUserList($statement);

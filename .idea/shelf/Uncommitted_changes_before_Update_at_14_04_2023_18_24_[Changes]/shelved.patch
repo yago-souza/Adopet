@@ -1,0 +1,227 @@
+Index: teste.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\n\n\nuse Alura\\Pdo\\Domain\\User\\Model\\User;\n\nrequire_once 'vendor/autoload.php';\n\n$yago = new User(\n    1,\n    'Yago',\n    'yago@gmail.com',\n          '1234',\n                '',\n            'teste'\n);\necho \"Ok\";
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/teste.php b/teste.php
+--- a/teste.php	
++++ b/teste.php	
+@@ -1,6 +1,6 @@
+ <?php
+ 
+-
++/*x
+ use Alura\Pdo\Domain\User\Model\User;
+ 
+ require_once 'vendor/autoload.php';
+@@ -13,4 +13,13 @@
+                 '',
+             'teste'
+ );
++echo "Ok";
++*/
++
++use Alura\Pdo\Infraestructure\Repository\PdoUserRepository;
++
++$listaUsuarios = new PdoUserRepository();
++
++$listaUsuarios->allUsers();
++
+ echo "Ok";
+\ No newline at end of file
+Index: src/Infraestructure/Repository/PdoUserRepository.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Infraestructure/Repository/PdoUserRepository.php b/src/Infraestructure/Repository/PdoUserRepository.php
+new file mode 100644
+--- /dev/null	
++++ b/src/Infraestructure/Repository/PdoUserRepository.php	
+@@ -0,0 +1,52 @@
++<?php
++
++namespace Alura\Pdo\Infraestructure\Repository;
++
++use Alura\Pdo\Domain\Repository\UserRepository;
++use Alura\Pdo\Domain\User\Model\User;
++use Alura\Pdo\Infraestructure\Persistence\ConnectionCreator;
++use PDO;
++
++class PdoUserRepository implements UserRepository
++{
++    private PDO $connection;
++
++    public function __construct(PDO $connection)
++    {
++        $this->connection = $connection;
++    }
++
++    public function allUsers(): array
++    {
++        $statement = $this->connection->query("SELECT * FROM TBL_USER;");
++        return $this->hydrat
++        /*$userDataList = $statement->fetchAll(PDO::FETCH_ASSOC);
++        $userList = [];
++
++
++        foreach ($userDataList as $userData) {
++            $userList[] = new User(
++                $userData['ID'],
++                $userData['NAME'],
++                $userData['EMAIL'],
++                $userData['PASSWORD'],
++                $userData['ABOUT'],
++                $userData['PROFILE_PICTURE']
++            );
++        }*/
++
++    }
++
++    public function saveUser(User $user): bool
++    {
++        // TODO: Implement saveUser() method.
++    }
++
++    public function removeUser(User $user): bool
++    {
++        $statement = $this->connection->prepare('DELETE FROM TBL_USER WHERE ID = ?;');
++        $statement->bindValue(1, $user->getId(), PDO::PARAM_INT);
++
++        return $statement->execute();
++    }
++}
+\ No newline at end of file
+Index: src/Domain/Repository/UserRepository.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Domain/Repository/UserRepository.php b/src/Domain/Repository/UserRepository.php
+new file mode 100644
+--- /dev/null	
++++ b/src/Domain/Repository/UserRepository.php	
+@@ -0,0 +1,13 @@
++<?php
++
++namespace Alura\Pdo\Domain\Repository;
++
++use Alura\Pdo\Domain\User\Model\User;
++
++interface UserRepository
++{
++    public function allUsers(): array;
++
++    public function saveUser(User $user): bool;
++    public function removeUser(User $user): bool;
++}
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"a0c05e66-1ae7-489a-b886-47c7c2ace80b\" name=\"Changes\" comment=\"att\" />\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"ComposerSettings\" doNotAsk=\"true\" synchronizationState=\"SYNCHRONIZE\">\n    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>\n    <execution />\n  </component>\n  <component name=\"Git.Settings\">\n    <favorite-branches>\n      <branch-storage>\n        <map>\n          <entry type=\"LOCAL\">\n            <value>\n              <list>\n                <branch-info repo=\"$PROJECT_DIR$\" source=\"main\" />\n              </list>\n            </value>\n          </entry>\n        </map>\n      </branch-storage>\n    </favorite-branches>\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"MarkdownSettingsMigration\">\n    <option name=\"stateVersion\" value=\"1\" />\n  </component>\n  <component name=\"PhpWorkspaceProjectConfiguration\" interpreter_name=\"PHP 8.1\">\n    <include_path>\n      <path value=\"$PROJECT_DIR$/vendor/composer\" />\n    </include_path>\n  </component>\n  <component name=\"ProjectId\" id=\"2O418JuyHF3rAjya6qkjtoPWUQ8\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\n    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,\n    &quot;last_opened_file_path&quot;: &quot;D:/Yago/Estudos/Alura/PHP-PDO&quot;,\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\n    &quot;settings.editor.selected.configurable&quot;: &quot;web-ide.project.structure&quot;,\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\n  }\n}</component>\n  <component name=\"RecentsManager\">\n    <key name=\"MoveFile.RECENT_KEYS\">\n      <recent name=\"D:\\Yago\\Estudos\\Alura\\Challenge Back End 6\\src\\Domain\\Model\" />\n      <recent name=\"D:\\Yago\\Estudos\\Alura\\Challenge Back End 6\\src\" />\n    </key>\n  </component>\n  <component name=\"RunManager\" selected=\"PHP Script.lista-usuario.php\">\n    <configuration name=\"conexao.php\" type=\"PhpLocalRunConfigurationType\" factoryName=\"PHP Console\" temporary=\"true\" path=\"$PROJECT_DIR$/conexao.php\">\n      <CommandLine>\n        <PhpTestInterpreterSettings>\n          <option name=\"interpreterName\" value=\"PHP 8.1\" />\n        </PhpTestInterpreterSettings>\n      </CommandLine>\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"insere-usuario.php\" type=\"PhpLocalRunConfigurationType\" factoryName=\"PHP Console\" temporary=\"true\" path=\"$PROJECT_DIR$/insere-usuario.php\">\n      <CommandLine>\n        <PhpTestInterpreterSettings>\n          <option name=\"interpreterName\" value=\"PHP 8.1\" />\n        </PhpTestInterpreterSettings>\n      </CommandLine>\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"lista-usuario.php\" type=\"PhpLocalRunConfigurationType\" factoryName=\"PHP Console\" temporary=\"true\" path=\"$PROJECT_DIR$/lista-usuario.php\">\n      <CommandLine>\n        <PhpTestInterpreterSettings>\n          <option name=\"interpreterName\" value=\"PHP 8.1\" />\n        </PhpTestInterpreterSettings>\n      </CommandLine>\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"teste.php\" type=\"PhpLocalRunConfigurationType\" factoryName=\"PHP Console\" temporary=\"true\" path=\"$PROJECT_DIR$/teste.php\">\n      <CommandLine>\n        <PhpTestInterpreterSettings>\n          <option name=\"interpreterName\" value=\"PHP 8.1\" />\n        </PhpTestInterpreterSettings>\n      </CommandLine>\n      <method v=\"2\" />\n    </configuration>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"PHP Script.lista-usuario.php\" />\n        <item itemvalue=\"PHP Script.conexao.php\" />\n        <item itemvalue=\"PHP Script.insere-usuario.php\" />\n        <item itemvalue=\"PHP Script.teste.php\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"a0c05e66-1ae7-489a-b886-47c7c2ace80b\" name=\"Changes\" comment=\"\" />\n      <created>1680804888680</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1680804888680</updated>\n      <workItem from=\"1680804892208\" duration=\"1618000\" />\n      <workItem from=\"1681130271935\" duration=\"2486000\" />\n      <workItem from=\"1681214523839\" duration=\"3094000\" />\n      <workItem from=\"1681218323407\" duration=\"12388000\" />\n      <workItem from=\"1681422646440\" duration=\"945000\" />\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"teste\">\n      <created>1680809888471</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1680809888471</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"Criado as funcionalidades de inserir e listar usuários\">\n      <created>1681232480330</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1681232480331</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"Criado as funcionalidades de inserir e listar usuários\">\n      <created>1681423657212</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1681423657212</updated>\n    </task>\n    <task id=\"LOCAL-00004\" summary=\"att\">\n      <created>1681423763702</created>\n      <option name=\"number\" value=\"00004\" />\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1681423763702</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"5\" />\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"RECENT_FILTERS\">\n      <map>\n        <entry key=\"Branch\">\n          <value>\n            <list>\n              <RecentGroup>\n                <option name=\"FILTER_VALUES\">\n                  <option value=\"origin/main\" />\n                </option>\n              </RecentGroup>\n              <RecentGroup>\n                <option name=\"FILTER_VALUES\">\n                  <option value=\"HEAD\" />\n                </option>\n              </RecentGroup>\n            </list>\n          </value>\n        </entry>\n      </map>\n    </option>\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"teste\" />\n    <MESSAGE value=\"Criado as funcionalidades de inserir e listar usuários\" />\n    <MESSAGE value=\"att\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"att\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -4,7 +4,13 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="a0c05e66-1ae7-489a-b886-47c7c2ace80b" name="Changes" comment="att" />
++    <list default="true" id="a0c05e66-1ae7-489a-b886-47c7c2ace80b" name="Changes" comment="att">
++      <change afterPath="$PROJECT_DIR$/src/Domain/Repository/UserRepository.php" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/Infraestructure/Repository/PdoUserRepository.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Domain/User/Model/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/User/Model/User.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/teste.php" beforeDir="false" afterPath="$PROJECT_DIR$/teste.php" afterDir="false" />
++    </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -44,28 +50,29 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+-    &quot;last_opened_file_path&quot;: &quot;D:/Yago/Estudos/Alura/PHP-PDO&quot;,
+-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+-    &quot;settings.editor.selected.configurable&quot;: &quot;web-ide.project.structure&quot;,
+-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "RunOnceActivity.OpenProjectViewOnStart": "true",
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "WebServerToolWindowFactoryState": "false",
++    "last_opened_file_path": "/home/yago/Documentos/alura/php/php-pdo-projeto-inicial",
++    "node.js.detected.package.eslint": "true",
++    "node.js.detected.package.tslint": "true",
++    "node.js.selected.package.eslint": "(autodetect)",
++    "node.js.selected.package.tslint": "(autodetect)",
++    "nodejs_package_manager_path": "npm",
++    "php.override.implement.member.chooser.php.doc": "NONE",
++    "settings.editor.selected.configurable": "web-ide.project.structure",
++    "vue.rearranger.settings.migration": "true"
+   }
+-}</component>
++}]]></component>
+   <component name="RecentsManager">
+     <key name="MoveFile.RECENT_KEYS">
+       <recent name="D:\Yago\Estudos\Alura\Challenge Back End 6\src\Domain\Model" />
+       <recent name="D:\Yago\Estudos\Alura\Challenge Back End 6\src" />
+     </key>
+   </component>
+-  <component name="RunManager" selected="PHP Script.lista-usuario.php">
++  <component name="RunManager" selected="PHP Script.teste.php">
+     <configuration name="conexao.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/conexao.php">
+       <CommandLine>
+         <PhpTestInterpreterSettings>
+@@ -100,10 +107,10 @@
+     </configuration>
+     <recent_temporary>
+       <list>
++        <item itemvalue="PHP Script.teste.php" />
+         <item itemvalue="PHP Script.lista-usuario.php" />
+         <item itemvalue="PHP Script.conexao.php" />
+         <item itemvalue="PHP Script.insere-usuario.php" />
+-        <item itemvalue="PHP Script.teste.php" />
+       </list>
+     </recent_temporary>
+   </component>
+@@ -119,7 +126,7 @@
+       <workItem from="1681130271935" duration="2486000" />
+       <workItem from="1681214523839" duration="3094000" />
+       <workItem from="1681218323407" duration="12388000" />
+-      <workItem from="1681422646440" duration="945000" />
++      <workItem from="1681422646440" duration="5746000" />
+     </task>
+     <task id="LOCAL-00001" summary="teste">
+       <created>1680809888471</created>
+@@ -149,7 +156,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1681423763702</updated>
+     </task>
+-    <option name="localTasksCounter" value="5" />
++    <task id="LOCAL-00005" summary="att">
++      <created>1681423914806</created>
++      <option name="number" value="00005" />
++      <option name="presentableId" value="LOCAL-00005" />
++      <option name="project" value="LOCAL" />
++      <updated>1681423914806</updated>
++    </task>
++    <option name="localTasksCounter" value="6" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">

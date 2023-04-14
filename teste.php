@@ -8,4 +8,4 @@ use Alura\Pdo\Domain\User\Model\User;
 $connection = ConnectionCreator::createConnection();
 $teste = new PdoUserRepository($connection);
 
-var_dump($teste->allUsers());
+var_dump($teste->userForId(1));

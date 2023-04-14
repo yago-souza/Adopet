@@ -1,0 +1,21 @@
+Index: src/Domain/User/Model/User.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\n\nnamespace Alura\\Pdo\\Domain\\User\\Model;\n\nclass User\n{\n    private ?int $id;\n    private $name;\n    private $email;\n    private $password;\n    private $about;\n    private $profilePicture;\n\n    public function __construct(\n        ?int $id,\n        string $name,\n        string $email,\n        string $password,\n        string $about,\n        string $profilePicture)\n    {\n        $this->name = $name;\n        $this->email = $email;\n        $this->password = $password;\n        $this->about = $about;\n        $this->profilePicture = $profilePicture;\n    }\n\n    public function setProfilePicture($profilePicture)\n    {\n        $this->profilePicture = $profilePicture;\n        return $this;\n    }\n\n    public function setAbout($about)\n    {\n        $this->about = $about;\n        return $this;\n    }\n\n    public function setPassword($password)\n    {\n        $this->password = $password;\n        return $this;\n    }\n\n    public function setEmail($email)\n    {\n        $this->email = $email;\n        return $this;\n    }\n\n    public function setName($name)\n    {\n        $this->name = $name;\n        return $this;\n    }\n\n    public function getName(): string\n    {\n        return $this->name;\n    }\n\n    public function getEmail(): string\n    {\n        return $this->email;\n    }\n\n    public function getPassword(): string\n    {\n        return $this->password;\n    }\n\n    public function getAbout(): string\n    {\n        return $this->about;\n    }\n\n    public function getProfilePicture(): string\n    {\n        return $this->profilePicture;\n    }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Domain/User/Model/User.php b/src/Domain/User/Model/User.php
+--- a/src/Domain/User/Model/User.php	
++++ b/src/Domain/User/Model/User.php	
+@@ -80,4 +80,9 @@
+     {
+         return $this->profilePicture;
+     }
++
++    public function getId()
++    {
++        return $this->id;
++    }
+ }
+\ No newline at end of file

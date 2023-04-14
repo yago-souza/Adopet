@@ -24,6 +24,7 @@ class User
         $this->password = $password;
         $this->about = $about;
         $this->profilePicture = $profilePicture;
+        $this->id = $id;
     }
 
     public function setProfilePicture($profilePicture)
@@ -93,4 +94,5 @@ class User
         }
         $this->id = $id;
     }
+
 }

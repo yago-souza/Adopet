@@ -13,7 +13,8 @@ class PdoUserRepository implements UserRepository
 
     public function __construct(PDO $connection)
     {
-        $this->connection = $connection;}
+        $this->connection = $connection;
+    }
 
     public function allUsers(): array
     {
@@ -25,8 +26,13 @@ class PdoUserRepository implements UserRepository
 
     public function userForId(int $id):array
     {
-        $sqlQuery = "SELECT * FROM TBL_USER WHERE ID = $id;";
-        $statement = $this->connection->query($sqlQuery);
+        ##$sqlQuery = "SELECT * FROM TBL_USER WHERE ID = $id;";
+        ##$statement = $this->connection->query($sqlQuery);
+        $sqlQuery = "SELECT * FROM TBL_USER WHERE ID = :id;";
+        $statement = $this->connection->prepare($sqlQuery);
+        $statement->bindValue(':id',$id);
+        $statement->execute();
+
 
         return $this->hydrateUserList($statement);
     }
@@ -35,9 +41,9 @@ class PdoUserRepository implements UserRepository
     {
         if ($user->getId() === null) {
             return $this->insert($user);
+        } else {
+            return $this->update($user);
         }
-        
-        return $this->update($user);
     }
 
     public function remove(User $user): bool

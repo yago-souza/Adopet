@@ -9,10 +9,10 @@ require_once 'vendor/autoload.php';
 $pdo = ConnectionCreator::createConnection();
 
 $user = new User(
-    null,
+    5,
     'teste',
     'teste@email.com',
-'9876',
+'teste',
 ' ',
 ' ');
 

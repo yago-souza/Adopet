@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a0c05e66-1ae7-489a-b886-47c7c2ace80b" name="Changes" comment="lista usuarios, insere usuarios">
-      <change afterPath="$PROJECT_DIR$/src/Domain/Repository/UserRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Infraestructure/Repository/PdoUserRepository.php" afterDir="false" />
+    <list default="true" id="a0c05e66-1ae7-489a-b886-47c7c2ace80b" name="Changes" comment="Repositorio de usuarios">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/290b04d1-cd2c-436e-ba4c-c172e2250758.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_04_2023_20_24__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_04_2023_20_24__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/banco.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/banco.sqlite" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/insere-usuario.php" beforeDir="false" afterPath="$PROJECT_DIR$/insere-usuario.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domain/User/Model/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/User/Model/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infraestructure/Persistence/ConnectionCreator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infraestructure/Persistence/ConnectionCreator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infraestructure/Repository/PdoUserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infraestructure/Repository/PdoUserRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/teste.php" beforeDir="false" afterPath="$PROJECT_DIR$/teste.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,6 +38,7 @@
       </branch-storage>
     </favorite-branches>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -58,7 +59,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Yago/Estudos/Alura/PHP-PDO&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Yago/Estudos/Alura/Challenge Back End 6&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -111,9 +112,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="PHP Script.teste.php" />
+        <item itemvalue="PHP Script.insere-usuario.php" />
         <item itemvalue="PHP Script.lista-usuario.php" />
         <item itemvalue="PHP Script.conexao.php" />
-        <item itemvalue="PHP Script.insere-usuario.php" />
       </list>
     </recent_temporary>
   </component>
@@ -131,7 +132,11 @@
       <workItem from="1681218323407" duration="12388000" />
       <workItem from="1681422646440" duration="945000" />
       <workItem from="1681481748780" duration="5310000" />
-      <workItem from="1681497964258" duration="917000" />
+      <workItem from="1681497964258" duration="2102000" />
+      <workItem from="1681732161471" duration="1493000" />
+      <workItem from="1681744054110" duration="1704000" />
+      <workItem from="1681752249436" duration="892000" />
+      <workItem from="1681753831231" duration="1814000" />
     </task>
     <task id="LOCAL-00001" summary="teste">
       <created>1680809888471</created>
@@ -161,7 +166,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681423763702</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Repositorio de usuarios">
+      <created>1681500823426</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1681500823426</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -202,6 +214,7 @@
     <MESSAGE value="teste" />
     <MESSAGE value="Criado as funcionalidades de inserir e listar usuários" />
     <MESSAGE value="att" />
-    <option name="LAST_COMMIT_MESSAGE" value="att" />
+    <MESSAGE value="Repositorio de usuarios" />
+    <option name="LAST_COMMIT_MESSAGE" value="Repositorio de usuarios" />
   </component>
 </project>

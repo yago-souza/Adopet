@@ -8,4 +8,17 @@ use Alura\Pdo\Domain\User\Model\User;
 $connection = ConnectionCreator::createConnection();
 $teste = new PdoUserRepository($connection);
 
-var_dump($teste->userForId(1));
+try {
+    $user = new User(
+        null,
+        'teste',
+        'teste@email.com',
+        'teste',
+        ' ',
+        ' ');
+    $teste->save($user);
+} catch (\RuntimeException $e){
+    echo $e->getMessage();
+}
+
+#var_dump($teste->allUsers());

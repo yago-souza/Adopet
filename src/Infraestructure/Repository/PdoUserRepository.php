@@ -71,7 +71,7 @@ class PdoUserRepository implements UserRepository
 
     private function insert(User $user): bool
     {
-        $insertQuery = 'INSERT INTO TBL_USER (NAME,
+        $insertQuery = 'INSERT INTO TBL_USERA (NAME,
                                 EMAIL,
                                 PASSWORD,
                                 ABOUT,
@@ -81,6 +81,7 @@ class PdoUserRepository implements UserRepository
                                   :password,
                                   :about,
                                   :profilePicture);';
+
         $statement = $this->connection->prepare($insertQuery);
 
         $success = $statement->execute([

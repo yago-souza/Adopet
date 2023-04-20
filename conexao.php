@@ -1,8 +1,7 @@
 <?php
 
 $pdo = new PDO('sqlite:banco.sqlite');
-/*
-$pdo->query('CREATE TABLE IF NOT EXISTS
+/* $pdo->query('CREATE TABLE IF NOT EXISTS
                                   PET(
                                       ID INTEGER PRIMARY KEY,
                                       NAME TEXT,
@@ -43,9 +42,7 @@ $pdo->query("INSERT INTO
                                         );
 ");
 $pdo->query("DELETE FROM USER;"); */
-
 $statement = $pdo->query("SELECT * FROM TBL_USER;");
-
-var_dump($statement->fetchAll(PDO::FETCH_ASSOC));
+#var_dump($statement->fetchAll(PDO::FETCH_ASSOC));
 echo "Conectado";
 

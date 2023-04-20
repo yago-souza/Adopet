@@ -77,7 +77,7 @@ class PdoUserRepository implements UserRepository
 
     private function insert(User $user): bool
     {
-        $insertQuery = 'INSERT INTO TBL_USERA (NAME,
+        $insertQuery = 'INSERT INTO TBL_USER (NAME,
                                 EMAIL,
                                 PASSWORD,
                                 ABOUT,

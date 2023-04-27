@@ -1,6 +1,5 @@
 <?php
 
-
 use Alura\Pdo\Domain\User\Model\User;
 use Alura\Pdo\Infraestructure\Persistence\ConnectionCreator;
 

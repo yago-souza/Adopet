@@ -21,4 +21,4 @@ try {
     echo $e->getMessage();
 }
 
-#var_dump($teste->allUsers());
+var_dump($teste->allUsers());
